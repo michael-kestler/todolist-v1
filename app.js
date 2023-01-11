@@ -2,6 +2,10 @@ const express = require("express");
 
 const app = express();
 
+//for use in place of deprecated body-parser
+app.use(express.urlencoded({extended: true}));
+app.use(express.json())
+
 const port = 3000;
 
 app.get("/", (req, res) =>{
