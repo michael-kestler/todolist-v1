@@ -12,49 +12,28 @@ app.use(express.json())
 
 const port = 3000;
 
-app.get("/", (req, res) =>{
-    res.render('index', )
+app.get("/", (req, res) => {
+    res.render('index',)
     let today = new Date();
-    let currentDay = today.getDay();
-    let day;
+    // let currentDay = today.getDay();
 
-    // if(currentDay === 6 || today.getDay() === 0) {
-    //     day = "Weekend";
-    // } else {
-    //     day = "Weekday";
-    // }
-    // res.send("Hello World!");
+    //object that formats day
+    let options = {
+        weekday: "long",
+        day: "numeric",
+        month: "long"
+    };
 
-    switch(currentDay) {
-        case 0:
-            day = "Sunday"
-            break;
-        case 1:
-            day = "Monday";
-            break;
-        case 2:
-            day = "Tuesday";
-            break;
-        case 3:
-            day = "Wednesday";
-            break;
-        case 4:
-            day = "Thursday";
-            break;
-        case 5:
-            day = "Friday";
-            break;
-        case 6:
-            day = "Saturday";
-        break;
-        default:
-        console.log("Error: current day is equal to: " + currentDay);
+    let day = today.toLocaleDateString("en-US", options)
 
-    }
-    res.render("list",
-        {kindOfDay: day});
 
+
+    res.render("list", {
+        kindOfDay: day
+    });
 });
+
+
 
 
 
