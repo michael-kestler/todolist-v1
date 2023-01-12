@@ -18,13 +18,39 @@ app.get("/", (req, res) =>{
     let currentDay = today.getDay();
     let day;
 
-    if(currentDay === 6 || today.getDay() === 0) {
-        day = "Weekend";
-    } else {
-        day = "Weekday";
+    // if(currentDay === 6 || today.getDay() === 0) {
+    //     day = "Weekend";
+    // } else {
+    //     day = "Weekday";
+    // }
+    // res.send("Hello World!");
+
+    switch(currentDay) {
+        case 0:
+            day = "Sunday"
+            break;
+        case 1:
+            day = "Monday";
+            break;
+        case 2:
+            day = "Tuesday";
+            break;
+        case 3:
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thursday";
+            break;
+        case 5:
+            day = "Friday";
+            break;
+        case 6:
+            day = "Saturday";
+        break;
+
     }
     res.render("list", {kindOfDay: day});
-    // res.send("Hello World!");
+
 });
 
 
