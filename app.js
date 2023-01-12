@@ -12,6 +12,12 @@ app.use(express.json())
 
 const port = 3000;
 
+app.post("/", (req, res) => {
+    const newItem = req.body.newItem;
+
+    console.log(newItem);
+})
+
 app.get("/", (req, res) => {
     res.render('index',)
     let today = new Date();
