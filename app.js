@@ -16,12 +16,14 @@ app.get("/", (req, res) =>{
     res.render('index', )
     let today = new Date();
     let currentDay = today.getDay();
+    let day;
 
     if(currentDay === 6 || today.getDay() === 0) {
-        res.write("<h1>Yay it's the weekend</h1>");
+        day = "Weekend";
     } else {
-        res.sendFile(__dirname + "/index.html");
+        day = "Weekday";
     }
+    res.render("list", {kindOfDay: day});
     // res.send("Hello World!");
 });
 
