@@ -1,6 +1,8 @@
 const express = require("express");
-const date = require(__dirname + "date.js");
+const date = require(__dirname + "/date.js");
 const app = express();
+
+console.log(date());
 
 let items = ["Buy Food", "Cook Dinner", "Eat Dinner"];
 let workItems = [];
@@ -20,7 +22,7 @@ const port = 3000;
 
 app.get("/", (req, res) => {
 
-    //where date goes
+    let day = date();
 
     res.render("list", {listTitle: day, newListItem: items});
 });
