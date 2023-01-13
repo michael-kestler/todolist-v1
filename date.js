@@ -1,4 +1,6 @@
 
+console.log(module);
+
 function getDate() {
     let today = new Date();
 // let currentDay = today.getDay();
