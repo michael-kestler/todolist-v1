@@ -2,6 +2,7 @@ const express = require("express");
 
 const app = express();
 
+let items = [];
 
 //use ejs as view engine
 app.set("view engine", "ejs");
@@ -13,14 +14,19 @@ app.use(express.json())
 const port = 3000;
 
 app.post("/", (req, res) => {
-    const newItem = req.body.newItem;
+    let item = req.body.newItem;
 
-    console.log(newItem);
-})
+    items.push(item);
+    res.redirect("/");
+});
+
+
+
 
 app.get("/", (req, res) => {
     res.render('index',)
     let today = new Date();
+
     // let currentDay = today.getDay();
 
     //object that formats day
@@ -32,20 +38,8 @@ app.get("/", (req, res) => {
 
     let day = today.toLocaleDateString("en-US", options)
 
-
-
-    res.render("list", {
-        kindOfDay: day
-    });
+    res.render("list", {kindOfDay: day, newListItem: items});
 });
-
-
-
-
-
-
-
-
 
 
 app.listen(port, ()=>{
