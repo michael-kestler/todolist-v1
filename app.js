@@ -13,18 +13,7 @@ app.use(express.json())
 
 const port = 3000;
 
-app.post("/", (req, res) => {
-    let item = req.body.newItem;
-
-    items.push(item);
-    res.redirect("/");
-});
-
-
-
-
 app.get("/", (req, res) => {
-    res.render('index',)
     let today = new Date();
 
     // let currentDay = today.getDay();
@@ -39,6 +28,13 @@ app.get("/", (req, res) => {
     let day = today.toLocaleDateString("en-US", options)
 
     res.render("list", {kindOfDay: day, newListItem: items});
+});
+
+app.post("/", (req, res) => {
+    let item = req.body.newItem;
+
+    items.push(item);
+    res.redirect("/");
 });
 
 
