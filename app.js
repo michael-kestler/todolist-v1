@@ -20,6 +20,7 @@ const port = 3000;
 
 app.get("/", (req, res) => {
 
+    //where date goes
 
     res.render("list", {listTitle: day, newListItem: items});
 });
