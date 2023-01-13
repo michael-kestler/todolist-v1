@@ -19,18 +19,7 @@ const port = 3000;
 
 
 app.get("/", (req, res) => {
-    let today = new Date();
 
-    // let currentDay = today.getDay();
-
-    //object that formats day
-    let options = {
-        weekday: "long",
-        day: "numeric",
-        month: "long"
-    };
-
-    let day = today.toLocaleDateString("en-US", options)
 
     res.render("list", {listTitle: day, newListItem: items});
 });
