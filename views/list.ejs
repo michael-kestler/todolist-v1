@@ -6,24 +6,29 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>To Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h1> <%= kindOfDay %></h1>
-    <ul>
-        <li>Buy Groceries</li>
-        <li>Cook Dinner</li>
-        <li>Eat Dinner</li>
-<!--        <li><%=newListItem%></li>-->
+    <div class="box" id ="heading">
+        <h1> <%= kindOfDay %></h1>
+    </div>
+
+    <div class="box" id="list">
         <% for(let i =0; i<newListItem.length; i++) {%>
-            <li><%= newListItem[i] %></li>
-        <%}%>
+            <div class="item">
+               <input type="checkbox">
+                <p><%= newListItem[i] %></p>
+            </div>
+            <%}%>
 
-    </ul>
+            <form action="/" class="" method="post">
+                <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="button">+</button>
+            </form>
 
-<form action="/" class="" method="post">
-    <input type="text" name="newItem">
-    <button type="submit" name="button">Add</button>
-</form>
+
+    </div>
+
 
 
 </body>

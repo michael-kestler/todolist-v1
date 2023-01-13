@@ -2,14 +2,15 @@ const express = require("express");
 
 const app = express();
 
-let items = [];
+let items = ["Buy Food", "Cook Dinner", "Eat Dinner"];
 
 //use ejs as view engine
 app.set("view engine", "ejs");
 
 //for use in place of deprecated body-parser
 app.use(express.urlencoded({extended: true}));
-app.use(express.json())
+app.use(express.json());
+app.use(express.static('public'));
 
 const port = 3000;
 
