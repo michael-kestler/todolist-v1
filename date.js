@@ -17,7 +17,7 @@ function getDate() {
     return day;
 }
 
-module.exports.getDay= getDay;
+exports.getDay= getDay;
 function getDay() {
     let today = new Date();
 // let currentDay = today.getDay();

@@ -2,10 +2,9 @@ const express = require("express");
 const date = require(__dirname + "/date.js");
 const app = express();
 
-console.log(date.getDay());
 
-let items = ["Buy Food", "Cook Dinner", "Eat Dinner"];
-let workItems = [];
+const items = ["Buy Food", "Cook Dinner", "Eat Dinner"];
+const workItems = [];
 
 //use ejs as view engine
 app.set("view engine", "ejs");
